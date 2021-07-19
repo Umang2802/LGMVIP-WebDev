@@ -1,0 +1,24 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.App {
+  background-color: #f3f4f7;
+  background-image: linear-gradient(315deg, #f3f4f7 0%, #caccd1 74%);
+}
+
+.allcards {
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  grid-gap: 20px;
+  justify-content: space-evenly; 
+}
+
+@media screen and (max-width: 600px) {
+  .allcards {
+    grid-template-columns: repeat(1,auto);
+  }
+}
