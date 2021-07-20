@@ -18,12 +18,14 @@ function App() {
 
     Axios.get("https://reqres.in/api/users?page=1").then(
       (response) => {
+        console.log("Page 1 Fetched")
         setpage1(response.data.data);
       }
     )
 
     Axios.get("https://reqres.in/api/users?page=2").then(
       (response) => {
+        console.log("Page 2 Fetched")
         setpage2(response.data.data);
         setSpinnerLoading(false)
       }
@@ -44,21 +46,15 @@ function App() {
           return <Card id={item.id} fname={item.first_name} lname={item.last_name} email={item.email} image={item.avatar}/>
         })}
         {page2 && page2.map((item) => {
-          return <Card id={item.id} fname={item.first_name} lname={item.last_name} email={item.email} image={item.avatar}/>
+          return <Card userid={item.id} fname={item.first_name} lname={item.last_name} email={item.email} image={item.avatar}/>
         })}
       </div>
-      <div style={{
-       width: "100%",
-        height: "50%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-      }}>
+      <div className="loader">
       <Loader
         type="TailSpin"
         color="#00BFFF"
-        height={100}
-        width={100}
+        height={150}
+        width={150}
         visible={spinnerLoading}
       />
       </div>
